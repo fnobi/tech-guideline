@@ -93,7 +93,8 @@ GUIDELINES.md の標準構成から外れる可能性がある要件があれば
 - [ ] ルートに `eslint.shared.mjs` を配置し、各 package で継承している
 - [ ] 各 package の `tsconfig.json` にエイリアス設定がある
 - [ ] 相対パス import が存在しない（ESLint で担保されている）
-- [ ] `templates/hinagata-next/` を参考に Next.js を構成している（Web フロントの場合）
+- [ ] `templates/hinagata-next/` を参考にリポジトリ全体（root構成・`packages/core`・`packages/functions`・Firebase 設定・Terraform・CI 等）を構成している
+- [ ] Web フロントが必要な場合は `templates/hinagata-next/packages/web` を参考に Next.js を構成している（不要な場合は `packages/web` は作成しない）
 - [ ] `.prettierrc` がルートに存在する
 - [ ] GUIDELINES.md から逸脱した点は `docs/ADR.md` に記録している
 

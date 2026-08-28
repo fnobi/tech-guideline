@@ -25,19 +25,32 @@ npm・yarn は使用しない。
 
 ## リポジトリ構成
 
+### 雛形リポジトリ: hinagata-next
+
+新規プロジェクトの構成は、原則として雛形リポジトリ [fnobi/hinagata-next](https://github.com/fnobi/hinagata-next)（`templates/hinagata-next` に submodule として配置）を参照する。
+Next.js フロントに限らず、**モノレポ全体の雛形**として扱う。
+
+- ルート構成（`pnpm-workspace.yaml`・`eslint.shared.mjs`・`.prettierrc` 等）
+- `packages/core`（共通の型・スキーマ）
+- `packages/functions`（Firebase Functions）
+- `packages/web`（Next.js フロント）
+- Firebase 設定（`firebase.json` 等）・Terraform・GitHub Actions ワークフロー
+
+**Web フロントが不要なプロジェクトでは `packages/web` を無視してよい。** それ以外の要素（core・functions・Firebase・Terraform・CI 等）はフロントの有無によらず参考にする。
+
 ### 単一プラットフォームの場合
 
-シンプルな単一 package 構成でよい。
+シンプルな単一 package 構成でよい。この場合も `eslint.shared.mjs` によるルール管理や `.prettierrc` の置き方は hinagata-next を参考にする。
 
 ### 複数プラットフォームが混在する場合（例：Webフロント + サーバー処理）
 
-**pnpm workspace を使ったモノレポ構成**にする。
+**pnpm workspace を使ったモノレポ構成**にする。基本構成は hinagata-next に準じる。
 
 ```
 /
 ├── packages/
 │   ├── core/          # 全 package 共通の型・スキーマ定義
-│   ├── web/           # Next.js フロント
+│   ├── web/           # Next.js フロント（不要なら省略）
 │   ├── functions/     # Firebase Functions 等のサーバー処理
 │   └── ...
 ├── pnpm-workspace.yaml
@@ -171,7 +184,7 @@ Next.js は `tsconfig.json` の `paths` を自動的に読み取るため、`nex
 ### Next.js を使用（Pages Router / 静的生成ベース）
 
 Web フロントが必要な場合は **Next.js** を採用する。
-雛形リポジトリ: [fnobi/hinagata-next](https://github.com/fnobi/hinagata-next)
+雛形は `templates/hinagata-next` の `packages/web` を参照する（リポジトリ全体の雛形については上記「リポジトリ構成」を参照）。
 
 #### 構成方針
 
