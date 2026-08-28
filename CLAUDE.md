@@ -13,7 +13,7 @@
 ├── skills/
 │   └── setup-project.md    # 新規プロジェクトセットアップ手順
 ├── templates/
-│   └── nextjs-basic/       # Next.js 雛形（Pages Router）
+│   └── hinagata-next/      # Next.js 雛形（Pages Router、submodule）
 └── projects/               # .gitignore済み・作業ディレクトリ
     └── {プロジェクト名}/   # セットアップ後、別リポジトリに切り出す
 ```
