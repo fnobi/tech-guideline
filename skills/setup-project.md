@@ -95,6 +95,7 @@ GUIDELINES.md の標準構成から外れる可能性がある要件があれば
 - [ ] 相対パス import が存在しない（ESLint で担保されている）
 - [ ] `templates/hinagata-next/` を参考にリポジトリ全体（root構成・`packages/core`・`packages/functions`・Firebase 設定・Terraform・CI 等）を構成している
 - [ ] Web フロントが必要な場合は `templates/hinagata-next/packages/web` を参考に Next.js を構成している（不要な場合は `packages/web` は作成しない）
+- [ ] `templates/hinagata-next` に含まれるファイルは安易に削除していない（`mock` と名のつくファイル群も含め、初期構築時の利便性のために用意されているものが多いため、開発序盤はそのまま残す）
 - [ ] `.prettierrc` がルートに存在する
 - [ ] GUIDELINES.md から逸脱した点は `docs/ADR.md` に記録している
 
